@@ -30,7 +30,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import java.lang.Exception
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnCameraMoveListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -65,6 +65,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListene
         if (checkPermissionForLocation(this)) {
             startLocationUpdates()
         }
+        mMap.setOnCameraMoveListener(this)
+
 
         val btn = findViewById<Button>(R.id.button)
         btn.setOnClickListener{
@@ -74,8 +76,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListene
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(emul, 20F))
             //업데이트가 안된 것입니다.
         }
-
-        mMap.setOnMarkerDragListener(this);
 
         val findBtn = findViewById<Button>(R.id.findBtn)
         val addressOutput = findViewById<TextView>(R.id.address)
@@ -172,15 +172,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListene
         }
     }
 
-    override fun onMarkerDrag(p0: Marker) {
-    }
-
-    override fun onMarkerDragEnd(p0: Marker) {
-        val text1 = findViewById<TextView>(R.id.showLatLng)
-        text1.text = "lat lng is :" +marker1.position.latitude + ", "+marker1.position.longitude
-    }
-
-    override fun onMarkerDragStart(p0: Marker) {
+    override fun onCameraMove() {
+        var addressOutput = findViewById<TextView>(R.id.address)
+//        marker1.position = mMap.cameraPosition.target
     }
 
 }
