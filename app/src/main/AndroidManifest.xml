@@ -27,7 +27,7 @@
         android:value="AIzaSyDcrTqvS_h4n9lIGHunaRDreFMZ7iHuAtc" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".DialogMapActivity"
             android:exported="true"
             android:label="@string/title_activity_maps">
             <intent-filter>

@@ -30,7 +30,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import java.lang.Exception
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListener {
+class DialogMapActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -104,7 +104,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,OnMarkerDragListene
                 text1.text = "lat lng is :" +marker1.position.latitude + ", "+marker1.position.longitude
             }
             catch(e: Exception) {
-             }
+            }
         }
 
     }
