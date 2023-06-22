@@ -175,6 +175,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnCameraM
     override fun onCameraMove() {
         var addressOutput = findViewById<TextView>(R.id.address)
 //        marker1.position = mMap.cameraPosition.target
+        addressOutput.text = mMap.cameraPosition.target.toString()
+
     }
 
 }
